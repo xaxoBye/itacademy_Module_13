@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: cap">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<header th:replace="plantilla/template :: capcelera">
+	</header>
+		<div id="divGeneral">
+
+			<div id="divTabla">
+				<h1 th:text="${titulo}"></h1>
+
+			
+			
+			<table>
+		      <tr>
+		        <th>ID</th>
+		        <th>NOM</th>
+		        <th>FEINA</th>
+		        <th>SALARI</th>
+		        <th width="106">ESBORRAR</th>
+		        <th width="106">EDITAR</th>
+		      </tr>
+		      <tr th:each= "empleat: ${empleatsLst}">    	
+		        <td th:text="${empleat.idEmpleat}"></td>
+		        <td th:text="${empleat.nom}"></td>
+		        <td th:text="${empleat.feina}"></td>
+		        <td th:text="${empleat.salari}"></td>
+		        <td width="106">	
+					<svg height="24" width="110" style="background-color:green">
+					  <circle th:id=${empleat.idEmpleat} cx="12" cy="12" r="10" stroke="black" stroke-width="1" fill="red" 
+					  onmouseOver="escribir(event)" onmouseout="salir(event)" />
+					  <text th:id="${empleat.idEmpleat + '-txt'}" x="8" y="17"  style="font-family: Consolas" fill="cyan" 
+					  onmouseOver="escribir(event)" onmouseout="salir(event)" th:onclick="'window.location.href=\'/delete/' + ${empleat.idEmpleat} + '\''">X</text>
+					</svg>
+				</td>
+				<td>
+					<a width="106" th:href="@{/edit/} +${empleat.idEmpleat}" th:text="${'EDITAR [' + empleat.idEmpleat + ']'}">
+					</a>
+				</td>
+		      </tr>
+		
+		
+		    </table>
+			
+			</div>
+		
+			<div id="divFormulario">
+				
+				<h1 th:text="${tituloFrm}"></h1>
+				
+					<form   th:object="${empleat}" method="post">	
+						<input type="hidden"  th:field="*{idEmpleat}">
+						<label th:field="*{idEmpleat}" th:text="${nouId} ? ${'Id: ' +  nouId} : 'Id: Automàtic'" />
+						<br>
+						<br>
+						<label for="nom">Nom:</label>
+						<input type="text" th:field="*{nom}" id="nom" name="nom" required minlength="3" size="15">	
+						<br>
+						<br>
+				
+						<label for="feina">Feina:</label>
+						<select  th:field="*{feina}" id="feina" onchange="canviaSou()">
+						
+							<option th:each="job : ${jobs}" 
+							        th:value="${job.nomFeina}"
+							        th:text="${job.nomFeina}"
+							        th:selected="false"
+							        />	
+						</select>
+						
+						<!-- campo oculto para poder almacenar los salarios de cada trabajo -->
+						<select  th:field="*{salari}" id="salari" onchange="canviaFeina()"
+						         style="display: none" >
+						
+							<option th:each="job : ${jobs}" 
+							        th:value="${job.salari}"
+							        th:text="${job.salari}"
+							        th:selected="false"
+							        />	
+						</select>
+						
+						
+				
+						<br>
+						<br>		
+						<label for= "s2">Salari</label>
+						<label id="s2"></label>
+						<br>
+						<p><input type="submit" value="Enviar" /></p>	
+		
+		
+					</form>
+			</div>	
+		
+		</div>	
+	
+	
+	
+	
+	<footer th:replace="plantilla/template :: peuPag">
+	</footer>
+</body>
+</html>

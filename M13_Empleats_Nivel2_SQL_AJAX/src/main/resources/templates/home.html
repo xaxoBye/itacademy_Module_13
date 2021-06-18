@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: cap">
+<meta charset="utf-8"/>
+</head>
+<body>
+	<header th:replace="plantilla/template :: capcelera">
+	</header>
+	
+	<div id="divSql">
+		<fieldset>
+			<legend>SQL:</legend>
+	
+			<span id="infoSql">
+				 <br/> 	CREATE SCHEMA itacademy;
+				 <br/> 	USE itacademy;
+				 <br/> 	CREATE TABLE `empleat` (
+				 <br/> `id_empleat` bigint(20) NOT NULL AUTO_INCREMENT,
+				 <br/>  `feina` varchar(15) NOT NULL,
+				 <br/>  `nom` varchar(150) NOT NULL,
+				 <br/>  `salari` double NOT NULL,
+				 <br/>  PRIMARY KEY (`id_empleat`)
+				 <br/> ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+			</span>
+			<span>
+				<h2>Dades</h2>		
+				<br>INSERT INTO (`feina`,`nom`,`salari`) VALUES ('CONDUCTOR','Anna',1800.0);
+				<br>INSERT INTO (`feina`,`nom`,`salari`) VALUES ('PROFESSOR','Joan',2800.0);
+				<br>INSERT INTO (`feina`,`nom`,`salari`) VALUES ('DENTISTA','Cristina',2000.0);
+				<br>INSERT INTO (`feina`,`nom`,`salari`) VALUES ('TÈCNIC','Pol',2500.0);
+				<br>INSERT INTO (`feina`,`nom`,`salari`) VALUES ('GRANGER','Xavier',3800.0);
+				<br>INSERT INTO (`feina`,`nom`,`salari`) VALUES ('OPERARI','Julia',1200.0);
+				<br>INSERT INTO (`feina`,`nom`,`salari`) VALUES ('MECÀNIC','Carme',1300.0);	
+				<br>
+			</span>
+			<span>
+				<h2>ARCHIU</h2>		
+				<br>src/main/resources/application.properties
+				<br>spring.datasource.url=jdbc:mysql://localhost:3306/itacademy?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC		
+			</span>
+		</fieldset>
+	</div>
+	<br>
+	<!--  DIV donde se vera una tabla con los resultados del API REST -->
+	<div id="divGeneral">
+	
+
+		<div id="divTabla">
+				<table id="tbLlistatEmp">
+	
+				</table>
+		</div>	
+		
+		<div id="divCentral">
+		</div>
+			
+		<div id="divFormulario">
+			
+			<h1 id='h1Nom'>Empleat</h1>
+			
+				<form id="formEmpl"   method="PUT">	
+
+					ID:<label id='numId' >Automàtic</label>
+					<br>
+					<br>
+					<label for="nom">Nom:</label>
+					<input type="text"  id="nom" name="nom" required minlength ="3" maxlength="150" size="52">	
+					<br>
+					<br>
+			
+					<label for="feina">Feina:</label>
+					<select  id="feines" >
+
+					</select>
+					
+					<!-- campo oculto para poder almacenar los salarios de cada trabajo -->
+					<select  id="salarios"  style="visibility:hidden">
+					
+					</select>
+					
+					
+			
+					<br>
+					<br>		
+					<label for= "s2">Salari:</label>
+					<label id="s2"></label>
+					<br>
+					<p><input type="submit" value="Enviar" />
+					<input type="button" value="Reset" id="reset" />
+					</p>	
+					
+	
+	
+				</form>
+				
+				<hr/>
+
+		</div>	
+
+	
+	
+	
+
+	</div>
+
+
+	
+	<footer th:replace="plantilla/template :: peuPag">
+	</footer>
+</body>
+</html>

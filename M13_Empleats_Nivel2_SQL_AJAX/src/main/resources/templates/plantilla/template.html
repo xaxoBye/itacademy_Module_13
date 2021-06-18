@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="cap">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/css/general.css}">
+		<title>IT ACADEMY - GRUD -  Ajax</title>
+		
+		<script th:src="@{/js/jquery-3.6.0.min.js}" type="text/javascript"></script>
+		<script src="/js/general.js"  type="text/javascript" > </script>
+
+		
+		
+		</head>
+	<body>
+		<!--  barra de navegacion -->
+		<header th:fragment="capcelera">
+			<a id="logo"   href="https://itacademy.barcelonactiva.cat/login/index.php">
+				<img src="/img/logo.png" alt="ITacademy Barcelonactvia" >
+			</a>
+						
+			
+
+			<h3>Ordenar per</h3>
+			
+			<input type="button" value="ID" id="llistaEmpleat" />
+			&nbsp;&nbsp;
+
+			<input type="button" value="NOM" id="llistaPerNom" />
+			&nbsp;&nbsp;
+									
+			<input type="button" value="FEINA" id="llistaPerFeina" />
+			&nbsp;&nbsp;	
+
+			<input type="button" value="SALARI" id="llistaPerSalari" />
+			&nbsp;&nbsp;
+			
+			
+    <input type="button" value="Amagar SQL" id="infoSQL" /> 
+
+	
+	
+		</header>
+		
+		<!--  contenido -->
+		<div id="divPrincipal"></div>
+		
+		<!--  pied de página  -->
+		<footer th:fragment="peuPag">
+		
+			<fieldset>
+				<legend>Notes</legend>
+
+				<span id="notes"></span>
+			</fieldset>
+
+			<script type="text/javascript" th:src="@{/js/general.js}"></script>
+		</footer>
+	
+	</body>
+	<script type="text/javascript" src="./static/js/tabla.js"></script>
+</html>
