@@ -98,8 +98,8 @@ SQL:
 	INSERT INTO (`feina`,`nom`,`salari`) VALUES ('GRANGER','Xavier',3800.0);
 	INSERT INTO (`feina`,`nom`,`salari`) VALUES ('OPERARI','Julia',1200.0);
 	INSERT INTO (`feina`,`nom`,`salari`) VALUES ('MECÀNIC','Carme',1300.0);
-	ARCHIU
-
+	
+ARCHIU
 src/main/resources/application.properties
 spring.datasource.url=jdbc:mysql://localhost:3306/itacademy?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 
