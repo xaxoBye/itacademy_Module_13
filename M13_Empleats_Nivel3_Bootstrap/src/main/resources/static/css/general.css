@@ -1,0 +1,53 @@
+table, td, th {
+   border:1px solid black;
+}
+table, hr {
+   border-collapse:collapse;
+}
+td, th {
+   padding:5px;
+}
+hr {
+   width:90%;
+}
+A {
+   text-decoration: none;
+}
+
+
+
+
+
+#divGeneral{
+	postion: relative;
+	background-color: lightblue;
+}
+
+#divTabla{
+	float:left;
+	width:60%;
+	height:450px;
+	overflow: auto;
+	/*  background-color: #b1faef; */
+}
+
+#divCentral{
+	float:left;
+	width:10%;
+	height:450px;
+	/*	background-color: green;  */
+}
+
+#divFormulario{
+	float:left;
+	width:30%;
+	border: 50px;
+	margin: 30px auto;
+	/*	background-color: red; */
+}
+
+
+
+ #logo{
+float: right;
+}
